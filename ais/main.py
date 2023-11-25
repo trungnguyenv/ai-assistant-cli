@@ -9,7 +9,7 @@ from ais.api_key_providers import KeyRingProvider
 from ais.utils import get_system_info
 
 app = typer.Typer()
-app.add_typer(ais.auth_app.app)
+app.add_typer(ais.auth_app.app, name="auth")
 key_provider = KeyRingProvider()
 
 
