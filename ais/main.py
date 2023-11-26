@@ -1,4 +1,5 @@
 import subprocess
+from typing import Annotated, Optional, List
 
 import typer
 from openai import OpenAI
@@ -14,7 +15,8 @@ key_provider = KeyRingProvider()
 
 
 @app.command()
-def cmd(prompt: str):
+def cmd(prompt: Annotated[Optional[List[str]], typer.Argument()] = None) -> None:
+    prompt = " ".join(prompt)
     messages = [
         {
             "role": "system",
