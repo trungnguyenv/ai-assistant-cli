@@ -1,4 +1,5 @@
 import subprocess
+from typing import Annotated, Optional, List
 
 import typer
 from openai import OpenAI
@@ -14,7 +15,8 @@ key_provider = KeyRingProvider()
 
 
 @app.command()
-def cmd(prompt: str):
+def cmd(prompt: Annotated[Optional[List[str]], typer.Argument()] = None) -> None:
+    prompt = " ".join(prompt)
     messages = [
         {
             "role": "system",
@@ -39,9 +41,9 @@ System Info:
     command = response.choices[0].message.content
     typer.echo(f"The suggested command is: {typer.style(command, fg=typer.colors.GREEN)}")
 
-    prompt_execute = typer.style("E", fg=typer.colors.GREEN, bold=True) + "xecute"
-    prompt_adjust = typer.style("A", fg=typer.colors.YELLOW, bold=True) + "djust"
-    prompt_cancel = typer.style("C", fg=typer.colors.RED, bold=True) + "ancel"
+    prompt_execute = typer.style("E", fg=typer.colors.MAGENTA, bold=True) + "xecute"
+    prompt_adjust = typer.style("A", fg=typer.colors.MAGENTA, bold=True) + "djust"
+    prompt_cancel = typer.style("C", fg=typer.colors.MAGENTA, bold=True) + "ancel"
 
     choice = Prompt.ask(f"Choose action to perform ({prompt_execute}/{prompt_adjust}/{prompt_cancel})",
                         choices=["E", "A", "C"], default="C")
