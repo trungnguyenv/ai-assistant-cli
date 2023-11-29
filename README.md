@@ -59,13 +59,51 @@ This command will securely store your API key in your operating system's respect
 
 ### Generating Commands
 
-To generate a command, use the `ais cmd` followed by your prompt. No escape is required for the prompt. For example:
+#### Step 1: Enter the Prompt
+
+To use this feature, start by typing `ais cmd` followed by your natural language prompt. For example:
 
 ```bash
-ais cmd print the current user name
+ais cmd list all files in the current directory
 ```
 
-This will instruct the assistant to generate and execute the appropriate command based on your prompt.
+#### Step 2: Review the Suggested Command
+
+The AI will process your input and return a suggested command line instruction. This command is displayed in green for
+visibility. For instance, you might see:
+
+```bash
+The suggested command is: ls -l
+```
+
+#### Step 3: Choose an Action
+
+After reviewing the suggested command, you have three options:
+
+- **Execute (E):** If you are satisfied with the suggestion and want to execute the command, press `E`.
+- **Adjust (A):** If the command needs modification, press `A` to adjust it. You'll then be prompted to enter your
+  adjustment, and the AI will generate a new suggestion based on your input.
+- **Cancel (C):** If you decide not to proceed, press `C` to cancel.
+
+#### Step 4: Executing or Adjusting the Command
+
+- **Execute:** If you choose to execute, the command will run in your terminal. Output or errors from the command
+  execution will be displayed.
+- **Adjust:** If you choose to adjust, you'll be asked to provide further details or corrections. The AI will process
+  your adjustments and provide a new command suggestion.
+
+### Example Usage Scenario
+
+1. **Input Prompt:** `ais cmd create a new Python virtual environment`
+
+2. **AI Suggestion:** `The suggested command is: python3 -m venv myenv`
+
+3. **User Action:** Suppose the user wants to adjust the command to specify a different folder name, they would
+   choose `Adjust (A)` and enter the new folder name.
+
+4. **Revised Suggestion:** Based on the user's input, the AI might then suggest `python3 -m venv newenv`.
+
+5. **Execution:** The user can then execute the revised command by choosing `Execute (E)`.
 
 ## Contributing
 
