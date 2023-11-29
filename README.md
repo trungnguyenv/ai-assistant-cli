@@ -23,7 +23,7 @@ the [official Poetry website](https://python-poetry.org/docs/).
 Clone the `ai-assistant-cli` repository to your local machine.
 
 ```bash
-git clone https://github.com/your-username/ai-assistant-cli.git
+git clone https://github.com/trungnguyenv/ai-assistant-cli.git
 cd ai-assistant-cli
 ```
 
@@ -118,7 +118,7 @@ details.
 ## Support
 
 For support, questions, or feedback, please open an issue in
-the [GitHub issue tracker](https://github.com/your-username/ai-assistant-cli/issues).
+the [GitHub issue tracker](https://github.com/trungnguyenv/ai-assistant-cli/issues).
 
 ## Acknowledgements
 
